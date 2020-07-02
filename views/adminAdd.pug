@@ -1,0 +1,10 @@
+extends layout
+include mixins/_hotel_form
+
+block content
+    div(id="contentsite")
+        a(href="/admin")
+            button(type="button" class="btn btn-outline-warning") Back to Admin
+        h2= title
+        +hotelForm(hotel)
+        

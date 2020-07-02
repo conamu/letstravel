@@ -1,0 +1,14 @@
+extends layout
+include mixins/_countryList
+
+block content
+    .country_wrapper
+        div(id="contentsite" style="background: #49aeb3")
+            h2 Countries
+                a(href="/countries")
+                    button(class="btn btn-outline-submit") See all
+            div(class="row")
+                each country in allCountries
+                    +countryList(country)
+                else
+                    li There are no Countries.

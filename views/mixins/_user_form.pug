@@ -1,0 +1,29 @@
+mixin userForm()
+
+    form(action="" method="POST")
+
+        div(class="form-row")    
+            div(class="form-group col-md-6 col-sm-12")
+                label(for="first_name") First Name:
+                input(id="first_name" name="first_name" class="form-control" type="text" required)
+            div(class="form-group col-md-6 col-sm-12")
+                label(for="surname") Surname:
+                input(id="surname" name="surname" class="form-control" type="text" required)
+
+        div(class="form-row")    
+            div(class="form-group col-md-6 col-sm-12")
+                label(for="password") Password:
+                input(id="password" name="password" class="form-control" type="password" required)
+            div(class="form-group col-md-6 col-sm-12")
+                label(for="confirm_password") Confirm Password:
+                input(id="confirm_password" name="confirm_password" class="form-control" type="password" required)
+
+        div(class="form-row")
+            div(class="col-md-6 col-sm-12")
+                label(for="email") E-Mail:
+                input(id="email" name="email" class="form-control" type="email" required)
+            div(class="col-md-6 col-sm-12")
+                label(for="confirm_email") E-Mail:
+                input(id="confirm_email" name="confirm_email" class="form-control" type="email" required)
+
+        button(type="submit" class="btn-primary btn btn-block") Sign me UP!

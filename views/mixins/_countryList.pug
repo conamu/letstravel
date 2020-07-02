@@ -1,0 +1,11 @@
+mixin countryList(country)
+
+    div(class="card mb-3 contentcards")
+        div(class="row no-gutters")
+            div(class="col-md-7")
+                a(href=`/countries/${country}`)
+                    img(class="img-thumbnail" src=`/images/countries/${country}.jpg` href=`/countries/${country}`)
+            div(class="col-md-5")
+                div(class="card-body")
+                    a(href=`/countries/${country}`)
+                        h3(class="card-title") #{country}

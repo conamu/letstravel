@@ -1,0 +1,21 @@
+extends layout
+include mixins/_hotel
+include mixins/_countryList
+
+block content
+        div(id="contentsite" class="mx-auto" style="background: #49aeb3")
+            h2 Hotels
+                a(href="/all") 
+                    button(class="btn btn-outline-submit") See All
+            div(class="mx-auto row")
+                each hotel in filteredHotels
+                        +hotel(hotel)
+            hr
+        div(style="background: #49aeb3")
+            hr
+            h2 Countries
+                a(href="/countries")
+                    button(class="btn btn-outline-submit") See all
+            div(class="rowsin row")
+                each country in filteredCountries
+                    +countryList(country._id)

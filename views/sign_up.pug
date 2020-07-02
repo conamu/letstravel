@@ -1,0 +1,13 @@
+extends layout
+include mixins/_user_form
+
+block content
+
+    div(id="contentsite")
+        h2=title
+        hr
+        if errors
+            ul
+                for error in errors
+                    li(class="alert alert-danger" role="alert")= error.msg
+        +userForm

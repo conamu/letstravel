@@ -1,0 +1,85 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet" href="/stylesheets/bootstrap.min.css")
+    link(rel="stylesheet" href="/stylesheets/animate.min.css")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    script(src="/javascripts/jquery-3.5.1.min.js")
+    script(src="/javascripts/popper.min.js")
+    script(src="/javascripts/bootstrap.bundle.min.js")
+    
+  body
+    div(class="bgrnd")
+      header
+        nav(class="fixed-top navbar navbar-expand-lg navbar-light")
+          a(class="navbar-brand" href="/")
+            img(src="/images/logo.png" width="210px" alt="lets-travel-logo")
+          button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
+            span(class="navbar-toggler-icon")
+          div(class="collapse navbar-collapse" id="navbarNav")
+            ul(class="navbar-nav")
+
+              if !user
+                li(class="nav-item")
+                  a(class="text-nowrap nav-link pr-md-2" href="/sign-up") Sign Up
+                li(class="nav-item")
+                  a(class="nav-link" href="/login") Login
+              else
+                li(class="nav-item")
+                  a(class="nav-link" href="/logout") Logout
+                li(class="nav-item dropdown")
+                a(class="nav-link dropdown-toggle" role="button" id="AdminDropdown" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown") Admin
+                div(class="dropdown-menu" aria-labelledby="AdminDropdown")
+                  a(class="dropdown-item" href="/admin/add") Add Hotel
+                  a(class="dropdown-item" href="/admin/edit-remove") Edit Hotel
+                  a(class="dropdown-item" href="/admin/orders") View Bookings
+
+              li(class="nav-item dropdown")
+                a(class="nav-link dropdown-toggle" role="button" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown") Hotels
+                div(class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink")
+                  a(class="dropdown-item" href="/all") All Hotels
+                  a(class="dropdown-item" href="/countries") By Country
+                  
+              div(class="searchbar")
+                div(class="searchbarinner")
+                  form(action="/results" method="POST")
+                    div(class="row")
+                      div(class="col-md-2 col-sm-12")
+                        label(for="destination") Enter your Destination:
+                        input(type="text" id="destination" name="destination" class="form-control" placeholder="Sri-Lanka" required)
+                      div(class="col-md-1 col-sm-12")
+                        label(for="nights") Many Nights?
+                        input(type="text" id="nights" name="nights" class="form-control" placeholder="3" required)
+                      div(class="col-md-2 col-sm-12")
+                        label(for="duration") When?
+                        input(type="date" id="duration" name="duration" class="form-control" required)
+                      div(class="col-md-1 col-sm-12")
+                        label(for="guests") Guests?
+                        input(type="text" id="guests" name="guests" class="form-control" placeholder="4" required)
+                      div(class="col-md-2 col-sm-12")
+                        label(for="rating") Starrating:
+                        select(id="rating" name="rating" class="form-control" required)
+                          option(value="1") Min. 1 Star
+                          option(value="2") Min. 2 Star
+                          option(value="3") Min. 3 Star
+                          option(value="4") Min. 4 Star
+                          option(value="5") Min. 5 Star
+                      div(class="col-md-2 col-sm-12")
+                        label(for="sorting") Sorting:
+                        select(id="sorting" name="sorting" class="form-control" required)
+                          option(value="1") Price: Low-High
+                          option(value="-1") Price: High-Low
+                      div(class="col-md-1 col-sm-12")
+                        button(type="submit" class="mt-md-4 animate__animated animate__shakeX btn btn-outline-submit btn-block") Search!
+
+          - const values = Object.values(flash)
+          - const keys = Object.keys(flash)
+          if keys.length > 0
+            div(class=`fade show alert alert-${keys}` role="alert")
+              p= values
+
+
+    block content
+

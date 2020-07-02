@@ -1,0 +1,9 @@
+extends layout
+include mixins/_hotel
+
+block content
+    div(id="contentsite")
+        h2= title
+        div(class="row")
+            each hotel in allHotels
+                +hotel(hotel)

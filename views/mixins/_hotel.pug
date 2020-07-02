@@ -1,0 +1,55 @@
+mixin hotel(hotel, searchQuery)
+   
+    div(class="row")
+        div(class="card mb-2 contentcards")
+            div(class="row no-gutters")
+                div(class="col-md-8")
+                    a(href=`/all/${hotel._id}/details`)
+                        img(class="img-thumbnail" src=`http://res.cloudinary.com/dopppheje/image/upload/${hotel.image}`)
+                div(class="col-md-4")
+                    div(class="card-body")
+                        div
+                            a(href=`/all/${hotel._id}/details`)
+                                h3(class="card-title")= hotel.hotel_name
+                            hr
+                            if url.startsWith('/all/')
+                                p(class="card-text")=hotel.hotel_description
+                                hr
+                            p(class="card-text")= `Star-rating: ${hotel.star_rating}`
+                            a(href=`/countries/${hotel.country}`)
+                                p(class="card-text")= `Country: ${hotel.country}`
+                            p(class="card-text")= `Cost per Night: ${hotel.cost_per_night}$`
+
+                        div
+                            if url == '/results'
+                                div(class="card-text")
+                                    p= `Number of Nights: ${searchQuery.nights}`
+                                    p= `Departure date: ${searchQuery.duration}`
+                                    - const costEach = searchQuery.nights * hotel.cost_per_night
+                                    - const totalCost = costEach * searchQuery.guests
+                                    p= `Total per Person: ${costEach}$`
+                                    hr
+                                    h3= `Total cost: ${totalCost}$`
+
+    if url.startsWith ('/all/')
+        div(class="col-md-6 col-sm-12 searchbar")
+            div(class="searchbarinner")
+                form(action="/results" method="POST")
+                    div(class="row")
+                    div(class="col-md-2 col-sm-12")
+                        label(for="destination") Enter your Destination:
+                        input(type="text" id="destination" name="destination" class="form-control" placeholder="Sri-Lanka" value=hotel.hotel_name)
+                    div(class="col-md-1 col-sm-12")
+                        label(for="nights") Many Nights?
+                        input(type="text" id="nights" name="nights" class="form-control" placeholder="3" required)
+                    div(class="col-md-2 col-sm-12")
+                        label(for="duration") When?
+                        input(type="date" id="duration" name="duration" class="form-control" required)
+                    div(class="col-md-1 col-sm-12")
+                        label(for="guests") Guests?
+                        input(type="text" id="guests" name="guests" class="form-control" placeholder="4" required)
+                    div(class="col-md-1 col-sm-12")
+                        a(href="/results")
+                            button(type="submit" href="/results" class="mt-md-4 animate__animated animate__shakeX btn btn-outline-submit btn-block") Search!
+
+    

@@ -1,0 +1,39 @@
+mixin hotelForm(hotel={})
+
+
+    form(action="" method="POST" enctype="multipart/form-data")
+        div(class="form-group")
+            .form_input
+                label(for="hotel_name") Hotel Name:
+                input(type="text" class="form-control" name="hotel_name" value=hotel.hotel_name required)
+
+            .form_input
+                label(for="hotel_description") Hotel Description:
+                textarea(type="text" class="form-control" name="hotel_description" id="hotel_description " cols="15" rows="10" required)=hotel.hotel_description
+            
+            .form_input
+                label(for="image") Hotel Image:
+                input(type="file" class="form-control-file" name="image" id="image")
+
+            .form_input
+                label(for="star_rating") Star rating:
+                input(type="number" class="form-control" name="star_rating" min="1" value=hotel.star_rating max="5" required)
+            
+            .form_input
+                label(for="country") Country:
+                input(type="text" class="form-control" name="country" value=hotel.country id="country" required)
+
+            .form_input
+                label(for="cost_per_night") Cost per Night:
+                input(type="number" class="form-control" name="cost_per_night" value=hotel.cost_per_night id="cost_per_night" required)
+
+            .form_input
+                div(class="form-check form-check-inline")
+                    label(for="available" class="form-check-label") Available:
+                    input(type="radio" style="padding-left: 4rem;" class="form-check-input" id="available" name="available" value="true" checked)
+                div(class="form-check form-check-inline")
+                    label(for="unavailable" class="form-check-label") Unavailable:
+                    input(type="radio" class="form-check-input" id="unavailable" name="available" value="false")
+
+            .form_input
+                button(type="submit" class="btn btn-outline-submit") Confirm

@@ -1,0 +1,59 @@
+body {
+  margin: auto;
+  width: 100%;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  background: #53c2c9;
+}
+
+.card {
+  background: #53c2c9;
+}
+
+a {
+  color: white;
+}
+
+.navbar {
+  background: #53c2c9;
+}
+
+.searchbar {
+  background: #53c2c9;
+}
+
+.bgrnd {
+  background: #53c2c9;
+}
+
+#contentsite {
+  padding-top: 7rem;
+
+}
+
+.searchbarinner {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.admin {
+  background: #53c2c9;
+}
+
+.contentcards {
+  margin: 2rem;
+  width: 80%;
+}
+
+@media (min-width: 800px) {
+  .contentcards {
+    width: 45rem;
+    margin: 2rem;
+  }
+  .searchbar {
+    height: 4rem;
+  }
+  .searchbarinner {
+    padding-left: 1rem;
+  }
+}

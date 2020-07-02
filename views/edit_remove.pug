@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    div(class="admin" id="contentsite")
+        h3= title
+        form(action="" method="POST")
+            div(class="form-row")
+                div(class="form-group col-md-2 col-sm-12")
+                    label(for="hotel_id") Hotel ID:
+                    input(type="text" name="hotel_id" id="hotel_id" class="form-control")
+                div(class="col-md-1")
+                    p or:
+                div(class="form-group col-md-2 col-sm-12")
+                    label(for="hotel_name") Hotel Name:
+                    input(type="text" name="hotel_name" id="hotel_name" class="form-control")
+                div(class="col-md-1 col-sm-12")
+                    button(type="submit" class="btn btn-submit") Search
+                    
