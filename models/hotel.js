@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+
+// Setup the Schema to declare how the Hotels data is stored in the MongoDB.
 const hotelSchema = new mongoose.Schema({
   hotel_name: {
     type: String,

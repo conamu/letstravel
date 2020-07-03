@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const passportMongoose = require('passport-local-mongoose');
 const mongooseBcrypt = require('mongoose-bcrypt');
 
+//Setup the schema to declare how information of the User is Stored in the MongoDB.
 const userSchema = new mongoose.Schema({
   first_name: {
     type: String,
@@ -28,7 +29,7 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: 'Password is required',
-    bcrypt: true,
+    bcrypt: true, // Set BCRYTPT to Hash and Salt the Password.
   },
   isAdmin: {
     type: Boolean,

@@ -1,3 +1,9 @@
+
+/* © 2020 Constantin Amundsen
+Dieser Code wurde im Ramen einer übung mit Backend Technologie geschrieben. */
+
+
+// Setup useable constants for the modules.
 require('dotenv').config();
 const createError = require('http-errors');
 const express = require('express');
@@ -25,6 +31,7 @@ const passport = require('passport');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+// Configure the Sessions
 app.use(session({
   secret: process.env.SECRET,
   saveUninitialized: false,
